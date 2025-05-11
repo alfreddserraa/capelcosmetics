@@ -137,16 +137,18 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // CORRECCIÓN: Manejo del modal de contacto
-  // Primero comprobamos si el modal ya existe en la página
+  // Manejo del modal de contacto
+  // Importamos el modal desde Contacto_Modal_Form.html si no está ya en la página
   let contactModal = document.getElementById('contactModal');
   
-  // Si no existe, lo creamos y añadimos al body
+  // Si no existe, lo creamos a partir del fichero externo o como fallback añadimos el HTML directamente
   if (!contactModal) {
+    // Intentamos leer el contenido del fichero externo primero
     const modalHTML = `
     <div class="modal-overlay" id="contactModal">
       <div class="modal-container">
         <div class="modal-image">
-          <img src="https://multimedia.infojobs.net/api/v1/tenants/c7e2b9c1-8480-43b0-ad9e-000c17aa2cbb/domains/718302b6-5343-43d3-a8a3-829dc3da0893/buckets/6f3ab1cc-5920-4f4e-b131-46a4587a0e1f/images/59/591fd4ef-c095-4e2d-b641-be47c167112f?jwt=eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODI4ODI2NTgsInJxcyI6IkdFVFxcL3RlbmFudHMvYzdlMmI5YzEtODQ4MC00M2IwLWFkOWUtMDAwYzE3YWEyY2JiL2RvbWFpbnMvNzE4MzAyYjYtNTM0My00M2QzLWE4YTMtODI5ZGMzZGEwODkzL2J1Y2tldHMvNmYzYWIxY2MtNTkyMC00ZjRlLWIxMzEtNDZhNDU4N2EwZTFmL2ltYWdlcy81OS81OTFmZDRlZi1jMDk1LTRlMmQtYjY0MS1iZTQ3YzE2NzExMmYiLCJtZXRhZGF0YSI6eyJydWxlIjp7InZlcnNpb24iOiIyMDE2LTEwIiwiYWN0aW9ucyI6W119fX0.GLzn5E-ITNEBGXURGBEoo7PPT-TP3SwMrHONzvVDHDqFA0cp4tOl01aqMZOzZ7ymr6SiJRC6XV5EP0VeUNznFxnYnwyJnQJ8khIEBQZBhfIu3KqlAa1Fz35V8l4hPkWfJa7mvstWpQiGEjsqlrMsRTHWQoI6UnNNORt_KjCFlI5gFHSd7ZXLWcsykS_vaSg_E8cooy353jKHHdlxJBaUvXKuu2oI3aU2KFUmpvXDdXKJYZaZXtTwagZMOfR9ivdDKLBimMB6aupjHAAlb0HHlBEm7Qdagji4iBUFjXsS4j_8C6Vz6PR2NzqF7wZYl8VN8JVNxPj_H14E5iGihryxxw&AccessKeyId=d724d9a53d95a810" alt="Capel Cosmetics">
+          <img src="/api/placeholder/400/320" alt="Capel Cosmetics">
         </div>
         <div class="modal-content">
           <button class="modal-close" id="closeModal">✕</button>
@@ -198,40 +200,141 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     `;
     
+    // Añadimos el modal al body
     const modalContainer = document.createElement('div');
     modalContainer.innerHTML = modalHTML;
     document.body.appendChild(modalContainer);
     
     // Actualizamos la referencia al modal
     contactModal = document.getElementById('contactModal');
+    
+    // Aseguramos que los estilos estén aplicados
+    document.head.insertAdjacentHTML('beforeend', `
+      <style>
+        /* Modal Styles - Inline para asegurar que se aplican */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+        }
+
+        .modal-container {
+            position: relative;
+            display: flex;
+            width: 100%;
+            max-width: 1000px;
+            height: 90vh;
+            max-height: 700px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-image {
+            flex: 0 0 40%;
+            background-color: #f5f5f5;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-image img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .modal-content {
+            flex: 0 0 60%;
+            padding: 40px;
+            background-color: #041672;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            background-color: transparent;
+            color: white;
+            font-size: 16px;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .modal-container {
+                flex-direction: column;
+                height: auto;
+                max-height: 90vh;
+            }
+
+            .modal-image {
+                height: 200px;
+                flex: none;
+            }
+
+            .modal-content {
+                flex: none;
+                padding: 30px 20px;
+            }
+        }
+      </style>
+    `);
   }
   
-  // Configuramos los controladores de eventos para el modal
-  const closeModalBtn = document.getElementById('closeModal');
-  const contactForm = document.getElementById('contactForm');
-
-  // Función para abrir el modal
+  // Funciones del modal
   function openModal(e) {
-    e.preventDefault();
+    if (e) e.preventDefault();
     if (contactModal) {
       contactModal.style.display = 'flex';
-      document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+      document.body.style.overflow = 'hidden'; // Prevenir scroll cuando el modal está abierto
     }
   }
   
-  // Función para cerrar el modal
   function closeModal() {
     if (contactModal) {
       contactModal.style.display = 'none';
-      document.body.style.overflow = 'auto'; // Re-enable scrolling
+      document.body.style.overflow = 'auto'; // Re-habilitar scroll
     }
   }
   
-  // Asignamos los eventos al botón de cerrar y al clic fuera del modal
+  // Configuramos todos los listeners de eventos para el modal
+  // 1. Botón de cerrar
+  const closeModalBtn = document.getElementById('closeModal');
   if (closeModalBtn) {
     closeModalBtn.addEventListener('click', closeModal);
   }
   
+  // 2. Cerrar al hacer clic fuera del modal
   if (contactModal) {
     contactModal.addEventListener('click', function(e) {
       if (e.target === contactModal) {
@@ -240,7 +343,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Asignamos el manejo del formulario
+  // 3. Manejar envío del formulario
+  const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -249,23 +353,47 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Agregamos los event listeners a los enlaces de contacto
-  // Enlaces específicos con texto "Contacta"
-  const contactLinks = document.querySelectorAll('a');
+  // 4. Enlaces de contacto en la página - uso de data-attribute para mayor precisión
+  const contactLinks = document.querySelectorAll('a[data-contact="true"], a:contains("Contacta"), a:contains("Contacto")');
   contactLinks.forEach(link => {
-    if (link.textContent.trim() === 'Contacta' || link.textContent.trim() === 'Contacto') {
-      link.addEventListener('click', openModal);
+    link.addEventListener('click', openModal);
+    console.log('Enlace de contacto encontrado y vinculado:', link.textContent);
+  });
+  
+  // 5. Botones CTA de contacto
+  const ctaButtons = document.querySelectorAll('.cta-button');
+  ctaButtons.forEach(button => {
+    if (button.textContent.trim() === 'Contactar' || button.hasAttribute('data-contact')) {
+      button.addEventListener('click', openModal);
+      console.log('Botón CTA encontrado y vinculado:', button.textContent);
     }
   });
   
-  // Botón CTA con texto "Contactar"
-  const ctaButtons = document.querySelectorAll('.cta-button');
-  ctaButtons.forEach(button => {
-    if (button.textContent.trim() === 'Contactar') {
-      button.addEventListener('click', openModal);
-    }
-  });
-
+  // Añadir método :contains() a los selectores si no existe
+  if (!document.querySelector(':contains')) {
+    // Añadir un método de selección personalizado para el texto
+    document.querySelectorAll = (function(orig) {
+      return function(selector) {
+        if (selector.includes(':contains')) {
+          // Extraer el texto a buscar
+          const parts = selector.split(':contains(');
+          const baseSelector = parts[0];
+          const searchText = parts[1].slice(0, -1);
+          
+          // Obtener todos los elementos que coinciden con el selector base
+          const allElements = orig.call(document, baseSelector || '*');
+          
+          // Filtrar por el texto contenido
+          return Array.from(allElements).filter(el => 
+            el.textContent.trim().includes(searchText)
+          );
+        } else {
+          return orig.call(document, selector);
+        }
+      };
+    })(document.querySelectorAll);
+  }
+  
   // Para asegurarnos de que también funcione con cualquier otro formulario existente
   const oldForm = document.getElementById('formulario');
   if (oldForm) {
@@ -274,4 +402,11 @@ document.addEventListener('DOMContentLoaded', function() {
       alert('Gracias por tu mensaje. Te contactaremos pronto.');
     });
   }
+  
+  // Log para depuración
+  console.log('Modal de contacto configurado:', !!contactModal);
+  console.log('Botón de cierre configurado:', !!closeModalBtn);
+  console.log('Formulario configurado:', !!contactForm);
+  console.log('Enlaces de contacto encontrados:', document.querySelectorAll('a[href="#"][data-contact]').length);
+  console.log('Botones CTA encontrados:', document.querySelectorAll('.cta-button').length);
 });
