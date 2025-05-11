@@ -135,3 +135,124 @@ document.addEventListener('DOMContentLoaded', function() {
     //   updateSlider();
     // }, 5000); // Cambia de slide cada 5 segundos
 });
+// Contact Form Modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // Add the modal HTML to the page
+  const modalHTML = `
+  <div class="modal-overlay" id="contactModal">
+      <div class="modal-container">
+          <div class="modal-image">
+              <img src="https://multimedia.infojobs.net/api/v1/tenants/c7e2b9c1-8480-43b0-ad9e-000c17aa2cbb/domains/718302b6-5343-43d3-a8a3-829dc3da0893/buckets/6f3ab1cc-5920-4f4e-b131-46a4587a0e1f/images/59/591fd4ef-c095-4e2d-b641-be47c167112f?jwt=eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODI4ODI2NTgsInJxcyI6IkdFVFxcL3RlbmFudHMvYzdlMmI5YzEtODQ4MC00M2IwLWFkOWUtMDAwYzE3YWEyY2JiL2RvbWFpbnMvNzE4MzAyYjYtNTM0My00M2QzLWE4YTMtODI5ZGMzZGEwODkzL2J1Y2tldHMvNmYzYWIxY2MtNTkyMC00ZjRlLWIxMzEtNDZhNDU4N2EwZTFmL2ltYWdlcy81OS81OTFmZDRlZi1jMDk1LTRlMmQtYjY0MS1iZTQ3YzE2NzExMmYiLCJtZXRhZGF0YSI6eyJydWxlIjp7InZlcnNpb24iOiIyMDE2LTEwIiwiYWN0aW9ucyI6W119fX0.GLzn5E-ITNEBGXURGBEoo7PPT-TP3SwMrHONzvVDHDqFA0cp4tOl01aqMZOzZ7ymr6SiJRC6XV5EP0VeUNznFxnYnwyJnQJ8khIEBQZBhfIu3KqlAa1Fz35V8l4hPkWfJa7mvstWpQiGEjsqlrMsRTHWQoI6UnNNORt_KjCFlI5gFHSd7ZXLWcsykS_vaSg_E8cooy353jKHHdlxJBaUvXKuu2oI3aU2KFUmpvXDdXKJYZaZXtTwagZMOfR9ivdDKLBimMB6aupjHAAlb0HHlBEm7Qdagji4iBUFjXsS4j_8C6Vz6PR2NzqF7wZYl8VN8JVNxPj_H14E5iGihryxxw&AccessKeyId=d724d9a53d95a810" alt="Capel Cosmetics">
+          </div>
+          <div class="modal-content">
+              <button class="modal-close" id="closeModal">✕</button>
+              <h2 class="modal-title">Escríbenos si tienes cualquier duda o necesitas información</h2>
+              <p class="modal-subtitle">Acerca de nuestros productos o servicios a info@capelcosmetics.com</p>
+              
+              <form id="contactForm">
+                  <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Nombre completo*" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <input type="email" class="form-control" placeholder="Correo electrónico*" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <div class="form-select">
+                          <select class="form-control">
+                              <option value="" disabled selected>Consulta sobre un producto</option>
+                              <option value="cosmeticos">Cosméticos</option>
+                              <option value="capilar">Cosmética Capilar</option>
+                              <option value="perfumeria">Productos de perfumería</option>
+                              <option value="higiene">Productos de higiene corporal</option>
+                          </select>
+                      </div>
+                  </div>
+                  
+                  <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Empresa">
+                  </div>
+                  
+                  <div class="form-group">
+                      <input type="text" class="form-control" placeholder="País / Estado">
+                  </div>
+                  
+                  <div class="form-group">
+                      <textarea class="form-control form-textarea" placeholder="Escribe tu mensaje"></textarea>
+                  </div>
+                  
+                  <div class="form-checkbox">
+                      <input type="checkbox" id="privacyPolicy" required>
+                      <label for="privacyPolicy">He leído la política de cookies y acepto la <a href="#" class="privacy-link">Política de privacidad</a></label>
+                  </div>
+                  
+                  <button type="submit" class="form-submit">Enviar</button>
+              </form>
+          </div>
+      </div>
+  </div>
+  `;
+
+  // Add modal HTML to the body
+  const modalContainer = document.createElement('div');
+  modalContainer.innerHTML = modalHTML;
+  document.body.appendChild(modalContainer);
+
+  // Get all necessary elements
+  const contactModal = document.getElementById('contactModal');
+  const closeModal = document.getElementById('closeModal');
+  const contactForm = document.getElementById('contactForm');
+  
+  // Get all elements that should open the modal
+  const contactLinks = document.querySelectorAll('a[href="#"]');
+  let contactButton = null;
+  
+  // Find elements with "Contacta" text
+  contactLinks.forEach(link => {
+      if (link.textContent.trim() === 'Contacta') {
+          link.addEventListener('click', openModal);
+      }
+  });
+  
+  // Find CTA button with "Contactar" text
+  const ctaButtons = document.querySelectorAll('.cta-button');
+  ctaButtons.forEach(button => {
+      if (button.textContent.trim() === 'Contactar') {
+          button.addEventListener('click', openModal);
+      }
+  });
+  
+  // Functions to handle modal
+  function openModal(e) {
+      e.preventDefault();
+      contactModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+  }
+  
+  function closeModal() {
+      contactModal.style.display = 'none';
+      document.body.style.overflow = 'auto'; // Re-enable scrolling
+  }
+  
+  // Close modal on click outside or on close button
+  closeModal && closeModal.addEventListener('click', closeModal);
+  contactModal && contactModal.addEventListener('click', function(e) {
+      if (e.target === contactModal) {
+          closeModal();
+      }
+  });
+  
+  // Handle form submission
+  contactForm && contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Gracias por tu mensaje. Te contactaremos pronto.');
+      closeModal();
+  });
+});
+
+// For backwards compatibility with any existing form
+document.getElementById('formulario')?.addEventListener('submit', function (e) {
+e.preventDefault(); // evita que la página se recargue al enviar
+alert('Gracias por tu mensaje. Te contactaremos pronto.');
+});
