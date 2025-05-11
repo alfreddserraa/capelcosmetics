@@ -3,23 +3,27 @@ document.getElementById('formulario')?.addEventListener('submit', function (e) {
   alert('Gracias por tu mensaje. Te contactaremos pronto.');
 });  
 
-// Define el contenido para cada slide
+// Define el contenido para cada slide, ahora con imágenes de fondo personalizadas
 const slideContent = [
 {
     title: "EMPRESA",
-    subtitle: "CONOCE NUESTRA HISTORIA"
+    subtitle: "CONOCE NUESTRA HISTORIA",
+    background: "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80"
 },
 {
     title: "SERVICIOS",
-    subtitle: "SOLUCIONES PERSONALIZADAS"
+    subtitle: "SOLUCIONES PERSONALIZADAS",
+    background: "https://images.unsplash.com/photo-1608248597279-f99d160beba3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80"
 },
 {
     title: "PRODUCTOS",
-    subtitle: "CALIDAD Y EFICACIA"
+    subtitle: "CALIDAD Y EFICACIA",
+    background: "https://images.unsplash.com/photo-1595535373192-fc8935bacd89?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80"
 },
 {
     title: "NOVEDADES",
-    subtitle: "MANTÉNGASE INFORMADO"
+    subtitle: "MANTÉNGASE INFORMADO",
+    background: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80"
 }
 ];
 
@@ -54,6 +58,7 @@ const heroSubtitle = document.querySelector('.hero-content p');
 let currentSlide = 0; 
 
 function updateSlider() {
+// Actualiza qué punto está activo
 dots.forEach((dot, index) => {
     if (index === currentSlide) {
         dot.classList.add('active');
@@ -62,15 +67,16 @@ dots.forEach((dot, index) => {
     }
 });
 
-// Update content based on current slide
+// Actualiza el contenido basado en el slide actual
 heroTitle.textContent = slideContent[currentSlide].title;
 heroSubtitle.textContent = slideContent[currentSlide].subtitle;
 
-// Update the background image
+// Actualiza la imagen de fondo con la imagen personalizada para este slide
 const heroSection = document.querySelector('.hero');
-heroSection.style.backgroundImage = `url('https://via.placeholder.com/1920x900?text=Slide+${currentSlide + 1}')`;
+heroSection.style.backgroundImage = `url('${slideContent[currentSlide].background}')`;
 }
 
+// Añade eventos click a los puntos del slider
 dots.forEach((dot, index) => {
 dot.addEventListener('click', () => {
     currentSlide = index;
@@ -78,6 +84,7 @@ dot.addEventListener('click', () => {
 });
 });
 
+// Navegación con flechas
 leftArrow.addEventListener('click', () => {
 currentSlide = (currentSlide - 1 + dots.length) % dots.length;
 updateSlider();
@@ -92,4 +99,10 @@ updateSlider();
 document.addEventListener('DOMContentLoaded', function() {
 // Actualizar slider inmediatamente
 updateSlider();
+
+// Opcionalmente, puedes añadir un autoplay para el slider
+// setInterval(() => {
+//   currentSlide = (currentSlide + 1) % dots.length;
+//   updateSlider();
+// }, 5000); // Cambia de slide cada 5 segundos
 });

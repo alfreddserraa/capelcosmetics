@@ -1,0 +1,71 @@
+/* Estilos adicionales para el slider con transiciones suaves */
+.hero {
+    position: relative;
+    height: 60vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    transition: background-image 0.5s ease; /* Transición suave para el cambio de imagen */
+}
+
+.hero-content h1,
+.hero-content p {
+    transition: opacity 0.3s ease; /* Transición suave para el texto */
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transición suave para los puntos del slider */
+    margin: 0 5px;
+}
+
+.slider-dot.active {
+    background-color: var(--accent-orange);
+    opacity: 1;
+    transform: scale(1.2); /* Ligeramente más grande cuando está activo */
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    font-size: 2rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: background 0.3s ease;
+}
+
+.slider-arrow:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.slider-arrow.left {
+    left: 20px;
+}
+
+.slider-arrow.right {
+    right: 20px;
+}
+
+/* Opcional: Para una transición más elegante del contenido */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content {
+    animation: fadeIn 1s ease;
+}
