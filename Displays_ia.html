@@ -145,14 +145,19 @@
             min-width: 250px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             z-index: 100;
-            display: none;
+            visibility: hidden;
+            opacity: 0;
             padding: 15px 0;
             border-top: 3px solid var(--accent-orange);
             margin-top: 10px;
+            transition: visibility 0.3s, opacity 0.3s;
+            pointer-events: none;
         }
         
         .dropdown-container:hover .dropdown-menu {
-            display: block;
+            visibility: visible;
+            opacity: 1;
+            pointer-events: auto;
         }
         
         .dropdown-menu a {
