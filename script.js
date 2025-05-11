@@ -50,7 +50,7 @@ const rightArrow = document.querySelector('.slider-arrow.right');
 const heroTitle = document.querySelector('.hero-content h1');
 const heroSubtitle = document.querySelector('.hero-content p');
 
-let currentSlide = 3; // Start with the active slide (the 4th dot)
+let currentSlide = 0; // Start with the active slide (the 1th dot)
 
 function updateSlider() {
   dots.forEach((dot, index) => {
