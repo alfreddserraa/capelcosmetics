@@ -8,7 +8,9 @@
     display: flex;
     align-items: center;
     padding: 0 10%;
-    transition: background-image 0.5s ease; /* Transición suave para el cambio de imagen */
+    /* Reemplazar transition por opacity para un mejor efecto */
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
 }
 
 .hero-content h1,
@@ -46,6 +48,12 @@
     cursor: pointer;
     padding: 10px 15px;
     transition: background 0.3s ease;
+    /* Mejorar la visualización */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .slider-arrow:hover {
@@ -68,4 +76,19 @@
 
 .hero-content {
     animation: fadeIn 1s ease;
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Mejora la legibilidad del texto */
+}
+
+/* Asegurar que el overlay esté siempre presente para mejorar la legibilidad */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
 }

@@ -27,82 +27,111 @@ const slideContent = [
 }
 ];
 
+// Precarga de imágenes para el slider
+function preloadImages() {
+    slideContent.forEach(slide => {
+        const img = new Image();
+        img.src = slide.background;
+    });
+}
+
 // Mobile Menu Toggle
-document.querySelector('.hamburger').addEventListener('click', function() {
-document.querySelector('.mobile-menu').classList.add('active');
+document.querySelector('.hamburger')?.addEventListener('click', function() {
+    document.querySelector('.mobile-menu').classList.add('active');
 });
 
-document.querySelector('.close-menu').addEventListener('click', function() {
-document.querySelector('.mobile-menu').classList.remove('active');
+document.querySelector('.close-menu')?.addEventListener('click', function() {
+    document.querySelector('.mobile-menu').classList.remove('active');
 });
 
 // Mobile Submenu Toggle
 const submenuToggles = document.querySelectorAll('.submenu-toggle');
 
 submenuToggles.forEach(toggle => {
-toggle.addEventListener('click', function() {
-    const submenu = this.nextElementSibling;
-    submenu.classList.toggle('active');
-    this.textContent = submenu.classList.contains('active') ? '−' : '+';
-});
+    toggle.addEventListener('click', function() {
+        const submenu = this.nextElementSibling;
+        submenu.classList.toggle('active');
+        this.textContent = submenu.classList.contains('active') ? '−' : '+';
+    });
 });
 
 // Hero Slider
-const dots = document.querySelectorAll('.slider-dot');
-const leftArrow = document.querySelector('.slider-arrow.left');
-const rightArrow = document.querySelector('.slider-arrow.right');
-const heroTitle = document.querySelector('.hero-content h1');
-const heroSubtitle = document.querySelector('.hero-content p');
-
-// Cambiar a slide 0 (EMPRESA) para empezar, en lugar de 3 (NOVEDADES)
 let currentSlide = 0; 
 
 function updateSlider() {
-// Actualiza qué punto está activo
-dots.forEach((dot, index) => {
-    if (index === currentSlide) {
-        dot.classList.add('active');
-    } else {
-        dot.classList.remove('active');
-    }
-});
+    const dots = document.querySelectorAll('.slider-dot');
+    const heroTitle = document.querySelector('.hero-content h1');
+    const heroSubtitle = document.querySelector('.hero-content p');
+    const heroSection = document.querySelector('.hero');
+    
+    if (!heroSection || !heroTitle || !heroSubtitle) return;
 
-// Actualiza el contenido basado en el slide actual
-heroTitle.textContent = slideContent[currentSlide].title;
-heroSubtitle.textContent = slideContent[currentSlide].subtitle;
+    // Actualiza qué punto está activo
+    dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
 
-// Actualiza la imagen de fondo con la imagen personalizada para este slide
-const heroSection = document.querySelector('.hero');
-heroSection.style.backgroundImage = `url('${slideContent[currentSlide].background}')`;
+    // Actualiza el contenido basado en el slide actual
+    heroTitle.textContent = slideContent[currentSlide].title;
+    heroSubtitle.textContent = slideContent[currentSlide].subtitle;
+
+    // Añade un efecto de desvanecimiento
+    heroSection.style.opacity = "0";
+    
+    setTimeout(() => {
+        // Actualiza la imagen de fondo con la imagen personalizada para este slide
+        heroSection.style.backgroundImage = `url('${slideContent[currentSlide].background}')`;
+        heroSection.style.opacity = "1";
+    }, 300);
 }
 
-// Añade eventos click a los puntos del slider
-dots.forEach((dot, index) => {
-dot.addEventListener('click', () => {
-    currentSlide = index;
-    updateSlider();
-});
-});
-
-// Navegación con flechas
-leftArrow.addEventListener('click', () => {
-currentSlide = (currentSlide - 1 + dots.length) % dots.length;
-updateSlider();
-});
-
-rightArrow.addEventListener('click', () => {
-currentSlide = (currentSlide + 1) % dots.length;
-updateSlider();
-});
-
-// Ejecutar updateSlider() cuando el DOM esté completamente cargado
+// Ejecutar cuando el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
-// Actualizar slider inmediatamente
-updateSlider();
+    // Precargar las imágenes
+    preloadImages();
+    
+    const dots = document.querySelectorAll('.slider-dot');
+    const leftArrow = document.querySelector('.slider-arrow.left');
+    const rightArrow = document.querySelector('.slider-arrow.right');
+    
+    // Añade eventos click a los puntos del slider
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentSlide = index;
+            updateSlider();
+        });
+    });
 
-// Opcionalmente, puedes añadir un autoplay para el slider
-// setInterval(() => {
-//   currentSlide = (currentSlide + 1) % dots.length;
-//   updateSlider();
-// }, 5000); // Cambia de slide cada 5 segundos
+    // Navegación con flechas
+    leftArrow?.addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + dots.length) % dots.length;
+        updateSlider();
+    });
+
+    rightArrow?.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % dots.length;
+        updateSlider();
+    });
+
+    // Establecer la primera imagen de fondo inmediatamente (sin animación)
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+        // Aplicar directamente al estilo inicial
+        heroSection.style.backgroundImage = `url('${slideContent[0].background}')`;
+    }
+
+    // Después de un breve retraso, actualizar el slider para asegurarse de que todo está en su lugar
+    setTimeout(() => {
+        updateSlider();
+    }, 100);
+    
+    // Opcional: autoplay para el slider
+    // setInterval(() => {
+    //   currentSlide = (currentSlide + 1) % dots.length;
+    //   updateSlider();
+    // }, 5000); // Cambia de slide cada 5 segundos
 });
