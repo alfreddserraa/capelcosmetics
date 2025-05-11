@@ -3,160 +3,89 @@ document.getElementById('formulario').addEventListener('submit', function (e) {
     alert('Gracias por tu mensaje. Te contactaremos pronto.');
   });  
 
-// JavaScript para manejar la navegación del contenido
-document.addEventListener('DOMContentLoaded', function() {
-  // Links de navegación principal
-  const empresaLink = document.getElementById('empresaLink');
-  const homeLink = document.getElementById('homeLink');
-  const mobileEmpresaLink = document.getElementById('mobileEmpresaLink');
-  
-  // Secciones de página
-  const homePage = document.getElementById('homePage');
-  const empresaPage = document.getElementById('empresaPage');
-  
-  // Content navigation
-  const contentLinks = document.querySelectorAll('.content-link');
-  const submenuItems = document.querySelectorAll('.submenu-item');
-  const mobileSubmenuItems = document.querySelectorAll('.mobile-submenu-item');
-  
-  // Función para mostrar la página de empresa
-  function showEmpresaPage() {
-      homePage.classList.remove('active');
-      empresaPage.classList.add('active');
-      
-      // También podríamos actualizar las clases de los links para mostrar cuál está activo
-      empresaLink.classList.add('active');
+// Define el contenido para cada slide
+const slideContent = [
+  {
+      title: "EMPRESA",
+      subtitle: "CONOCE NUESTRA HISTORIA"
+  },
+  {
+      title: "SERVICIOS",
+      subtitle: "SOLUCIONES PERSONALIZADAS"
+  },
+  {
+      title: "PRODUCTOS",
+      subtitle: "CALIDAD Y EFICACIA"
+  },
+  {
+      title: "NOVEDADES",
+      subtitle: "MANTÉNGASE INFORMADO"
   }
-  
-  // Función para mostrar la página de inicio
-  function showHomePage() {
-      empresaPage.classList.remove('active');
-      homePage.classList.add('active');
-      
-      // Remover clase activa de los links
-      empresaLink.classList.remove('active');
-  }
-  
-  // Manejar clicks en el link de Empresa
-  if (empresaLink) {
-      empresaLink.addEventListener('click', function(e) {
-          e.preventDefault();
-          showEmpresaPage();
-      });
-  }
-  
-  // Manejar clicks en el link de Empresa en versión móvil
-  if (mobileEmpresaLink) {
-      mobileEmpresaLink.addEventListener('click', function(e) {
-          e.preventDefault();
-          showEmpresaPage();
-          
-          // Opcional: cerrar menú móvil después de navegar
-          document.querySelector('.mobile-menu').classList.remove('active');
-      });
-  }
-  
-  // Manejar clicks en el logo (volver a home)
-  if (homeLink) {
-      homeLink.addEventListener('click', function(e) {
-          e.preventDefault();
-          showHomePage();
-      });
-  }
-  
-  // Manejar clicks en los elementos del submenú
-  submenuItems.forEach(item => {
-      item.addEventListener('click', function(e) {
-          e.preventDefault();
-          
-          const targetSubmenu = this.getAttribute('data-submenu');
-          
-          // Primero ir a la página de empresa
-          showEmpresaPage();
-          
-          // Luego mostrar el contenido específico
-          showSubmenuContent(targetSubmenu);
-      });
-  });
-  
-  // Manejar clicks en los elementos del submenú móvil
-  mobileSubmenuItems.forEach(item => {
-      item.addEventListener('click', function(e) {
-          e.preventDefault();
-          
-          const targetSubmenu = this.getAttribute('data-submenu');
-          
-          // Primero ir a la página de empresa
-          showEmpresaPage();
-          
-          // Luego mostrar el contenido específico
-          showSubmenuContent(targetSubmenu);
-          
-          // Cerrar menú móvil
-          document.querySelector('.mobile-menu').classList.remove('active');
-      });
-  });
-  
-  // Función para mostrar el contenido específico del submenú
-  function showSubmenuContent(contentId) {
-      // Primero ocultar todos los contenidos
-      const allContents = document.querySelectorAll('.empresa-content');
-      allContents.forEach(content => content.classList.remove('active'));
-      
-      // Mostrar el contenido solicitado
-      const targetContent = document.getElementById(contentId);
-      if (targetContent) {
-          targetContent.classList.add('active');
-      }
-      
-      // Actualizar la navegación de contenido
-      contentLinks.forEach(link => {
-          if (link.getAttribute('data-content') === contentId) {
-              link.classList.add('active');
-          } else {
-              link.classList.remove('active');
-          }
-      });
-  }
-  
-  // Manejar la navegación del content-nav
-  contentLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-          e.preventDefault();
-          
-          // Eliminar clase activa de todos los links
-          contentLinks.forEach(el => el.classList.remove('active'));
-          
-          // Añadir clase activa al link actual
-          this.classList.add('active');
-          
-          // Mostrar el contenido correspondiente
-          const contentId = this.getAttribute('data-content');
-          showSubmenuContent(contentId);
-      });
-  });
-  
-  // Mobile menu toggle
-  const hamburger = document.querySelector('.hamburger');
-  const mobileMenu = document.querySelector('.mobile-menu');
-  const closeMenu = document.querySelector('.close-menu');
-  
-  hamburger.addEventListener('click', function() {
-      mobileMenu.classList.add('active');
-  });
-  
-  closeMenu.addEventListener('click', function() {
-      mobileMenu.classList.remove('active');
-  });
-  
-  // Submenu toggles
-  const submenuToggles = document.querySelectorAll('.submenu-toggle');
-  
-  submenuToggles.forEach(toggle => {
-      toggle.addEventListener('click', function() {
-          const submenu = this.nextElementSibling;
-          submenu.classList.toggle('active');
-          this.textContent = submenu.classList.contains('active') ? '-' : '+';
-      });
+];
+
+// Mobile Menu Toggle
+document.querySelector('.hamburger').addEventListener('click', function() {
+  document.querySelector('.mobile-menu').classList.add('active');
+});
+
+document.querySelector('.close-menu').addEventListener('click', function() {
+  document.querySelector('.mobile-menu').classList.remove('active');
+});
+
+// Mobile Submenu Toggle
+const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+submenuToggles.forEach(toggle => {
+  toggle.addEventListener('click', function() {
+      const submenu = this.nextElementSibling;
+      submenu.classList.toggle('active');
+      this.textContent = submenu.classList.contains('active') ? '−' : '+';
   });
 });
+
+// Hero Slider
+const dots = document.querySelectorAll('.slider-dot');
+const leftArrow = document.querySelector('.slider-arrow.left');
+const rightArrow = document.querySelector('.slider-arrow.right');
+const heroTitle = document.querySelector('.hero-content h1');
+const heroSubtitle = document.querySelector('.hero-content p');
+
+let currentSlide = 3; // Start with the active slide (the 4th dot)
+
+function updateSlider() {
+  dots.forEach((dot, index) => {
+      if (index === currentSlide) {
+          dot.classList.add('active');
+      } else {
+          dot.classList.remove('active');
+      }
+  });
+  
+  // Update content based on current slide
+  heroTitle.textContent = slideContent[currentSlide].title;
+  heroSubtitle.textContent = slideContent[currentSlide].subtitle;
+  
+  // Update the background image
+  const heroSection = document.querySelector('.hero');
+  heroSection.style.backgroundImage = `url('https://via.placeholder.com/1920x900?text=Slide+${currentSlide + 1}')`;
+}
+
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+      currentSlide = index;
+      updateSlider();
+  });
+});
+
+leftArrow.addEventListener('click', () => {
+  currentSlide = (currentSlide - 1 + dots.length) % dots.length;
+  updateSlider();
+});
+
+rightArrow.addEventListener('click', () => {
+  currentSlide = (currentSlide + 1) % dots.length;
+  updateSlider();
+});
+
+// Update immediately to match the current slide
+updateSlider();
