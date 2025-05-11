@@ -329,65 +329,6 @@
             color: white;
         }
         
-        /* Content Navigation for Empresa Section */
-        .content-nav {
-            display: flex;
-            justify-content: center;
-            background: white;
-            border-bottom: 1px solid #eee;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .content-nav a {
-            padding: 15px 30px;
-            color: var(--primary-green);
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 14px;
-            position: relative;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
-        }
-        
-        .content-nav a.active {
-            border-bottom: 3px solid var(--secondary-green);
-            color: var(--secondary-green);
-        }
-        
-        .content-nav a:hover {
-            border-bottom: 3px solid var(--accent-orange);
-        }
-        
-        /* Main Content Section for Empresa */
-        .main-content {
-            display: flex;
-            padding: 60px 10%;
-            gap: 50px;
-        }
-        
-        .content-left {
-            flex: 1;
-        }
-        
-        .content-right {
-            flex: 2;
-        }
-        
-        .content-title {
-            font-size: 1.8rem;
-            color: var(--primary-green);
-            margin-bottom: 25px;
-            font-weight: normal;
-        }
-        
-        .content-text {
-            color: var(--dark-grey);
-            line-height: 1.7;
-            margin-bottom: 30px;
-        }
-        
         /* Footer */
         footer {
             background-color: var(--primary-green);
@@ -480,15 +421,6 @@
             .hamburger {
                 display: block;
             }
-            
-            .main-content {
-                flex-direction: column;
-            }
-            
-            .content-nav {
-                overflow-x: auto;
-                justify-content: flex-start;
-            }
         }
         
         @media (max-width: 768px) {
@@ -574,15 +506,6 @@
         .mobile-submenu.active {
             display: block;
         }
-        
-        /* Page Sections */
-        .page-section {
-            display: none;
-        }
-        
-        .page-section.active {
-            display: block;
-        }
     </style>
 </head>
 <body>
@@ -596,21 +519,21 @@
     
     <!-- Header -->
     <header class="main-header">
-        <a href="#" id="homeLink">
+        <a href="#">
             <img src="https://multimedia.infojobs.net/api/v1/tenants/c7e2b9c1-8480-43b0-ad9e-000c17aa2cbb/domains/718302b6-5343-43d3-a8a3-829dc3da0893/buckets/6f3ab1cc-5920-4f4e-b131-46a4587a0e1f/images/59/591fd4ef-c095-4e2d-b641-be47c167112f?jwt=eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODI4ODI2NTgsInJxcyI6IkdFVFxcL3RlbmFudHMvYzdlMmI5YzEtODQ4MC00M2IwLWFkOWUtMDAwYzE3YWEyY2JiL2RvbWFpbnMvNzE4MzAyYjYtNTM0My00M2QzLWE4YTMtODI5ZGMzZGEwODkzL2J1Y2tldHMvNmYzYWIxY2MtNTkyMC00ZjRlLWIxMzEtNDZhNDU4N2EwZTFmL2ltYWdlcy81OS81OTFmZDRlZi1jMDk1LTRlMmQtYjY0MS1iZTQ3YzE2NzExMmYiLCJtZXRhZGF0YSI6eyJydWxlIjp7InZlcnNpb24iOiIyMDE2LTEwIiwiYWN0aW9ucyI6W119fX0.GLzn5E-ITNEBGXURGBEoo7PPT-TP3SwMrHONzvVDHDqFA0cp4tOl01aqMZOzZ7ymr6SiJRC6XV5EP0VeUNznFxnYnwyJnQJ8khIEBQZBhfIu3KqlAa1Fz35V8l4hPkWfJa7mvstWpQiGEjsqlrMsRTHWQoI6UnNNORt_KjCFlI5gFHSd7ZXLWcsykS_vaSg_E8cooy353jKHHdlxJBaUvXKuu2oI3aU2KFUmpvXDdXKJYZaZXtTwagZMOfR9ivdDKLBimMB6aupjHAAlb0HHlBEm7Qdagji4iBUFjXsS4j_8C6Vz6PR2NzqF7wZYl8VN8JVNxPj_H14E5iGihryxxw&AccessKeyId=d724d9a53d95a810" alt="Capel Cosmetics" class="logo">
         </a>
         
         <nav class="primary-nav">
             <!-- Empresa Dropdown -->
             <div class="dropdown-container">
-                <a href="#" class="nav-link" id="empresaLink">Empresa</a>
+                <a href="#" class="nav-link">Empresa</a>
                 <div class="dropdown-menu">
-                    <a href="#" class="submenu-item" data-submenu="presentacion">Presentación</a>
-                    <a href="#" class="submenu-item" data-submenu="mision">Misión/Visión/Valores</a>
-                    <a href="#" class="submenu-item" data-submenu="ventajas">Ventajas de trabajar con nosotros</a>
-                    <a href="#" class="submenu-item" data-submenu="calidad">Calidad</a>
-                    <a href="#" class="submenu-item" data-submenu="instalaciones">Instalaciones</a>
-                    <a href="#" class="submenu-item" data-submenu="experiencia">Experiencia/Mercados/Productos</a>
+                    <a href="#">Presentación</a>
+                    <a href="#">Misión/Visión/Valores</a>
+                    <a href="#">Ventajas de trabajar con nosotros</a>
+                    <a href="#">Calidad</a>
+                    <a href="#">Instalaciones</a>
+                    <a href="#">Experiencia/Mercados/Productos</a>
                 </div>
             </div>
             
@@ -663,15 +586,15 @@
         <div class="close-menu">✕</div>
         <ul>
             <li class="has-submenu">
-                <a href="#" id="mobileEmpresaLink">Empresa</a>
+                <a href="#">Empresa</a>
                 <span class="submenu-toggle">+</span>
                 <ul class="mobile-submenu">
-                    <li><a href="#" class="mobile-submenu-item" data-submenu="presentacion">Presentación</a></li>
-                    <li><a href="#" class="mobile-submenu-item" data-submenu="mision">Misión/Visión/Valores</a></li>
-                    <li><a href="#" class="mobile-submenu-item" data-submenu="ventajas">Ventajas de trabajar con nosotros</a></li>
-                    <li><a href="#" class="mobile-submenu-item" data-submenu="calidad">Calidad</a></li>
-                    <li><a href="#" class="mobile-submenu-item" data-submenu="instalaciones">Instalaciones</a></li>
-                    <li><a href="#" class="mobile-submenu-item" data-submenu="experiencia">Experiencia/Mercados/Productos</a></li>
+                    <li><a href="#">Presentación</a></li>
+                    <li><a href="#">Misión/Visión/Valores</a></li>
+                    <li><a href="#">Ventajas de trabajar con nosotros</a></li>
+                    <li><a href="#">Calidad</a></li>
+                    <li><a href="#">Instalaciones</a></li>
+                    <li><a href="#">Experiencia/Mercados/Productos</a></li>
                 </ul>
             </li>
             <li class="has-submenu">
@@ -710,332 +633,145 @@
         </ul>
     </div>
     
-    <!-- Home Page Section -->
-    <section id="homePage" class="page-section active">
-        <!-- Hero Section - Home -->
-        <section class="hero">
-            <div class="hero-overlay"></div>
-            <button class="slider-arrow left">❮</button>
-            <div class="hero-content">
-                <h1>NOVEDADES</h1>
-                <p>MANTÉNGASE INFORMADO</p>
-            </div>
-            <button class="slider-arrow right">❯</button>
-            <div class="slider-nav">
-                <div class="slider-dot"></div>
-                <div class="slider-dot"></div>
-                <div class="slider-dot"></div>
-                <div class="slider-dot active"></div>
-            </div>
-        </section>
-        
-        <!-- Feature Section -->
-        <section class="feature-section">
-            <img src="https://via.placeholder.com/300x600?text=Leaf" alt="Decorative leaf" class="feature-bg left">
-            <div class="feature-content">
-                <h3 class="feature-subtitle">CAPEL COSMETICS</h3>
-                <h2 class="feature-title">TU IDEA, NUESTRA FÓRMULA: CREAMOS BELLEZA A TU MEDIDA.</h2>
-                <a href="#" class="cta-button">Leer más</a>
-            </div>
-            <img src="https://via.placeholder.com/300x600?text=Wheat" alt="Decorative wheat" class="feature-bg right">
-        </section>
+    <!-- Hero Section - Bucal -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <button class="slider-arrow left">❮</button>
+        <div class="hero-content">
+            <h1>NOVEDADES</h1>
+            <p>MANTÉNGASE INFORMADO</p>
+        </div>
+        <button class="slider-arrow right">❯</button>
+        <div class="slider-nav">
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot active"></div>
+        </div>
     </section>
     
-    <!-- Empresa Page Section -->
-    <section id="empresaPage" class="page-section">
-        <!-- Hero Section - Empresa -->
-        <section class="hero">
-            <div class="hero-overlay"></div>
-            <button class="slider-arrow left">❮</button>
-            <div class="hero-content">
-                <h1>EMPRESA</h1>
-                <p>CONOCE NUESTRA HISTORIA</p>
+    <!-- Feature Section -->
+    <section class="feature-section">
+        <img src="https://via.placeholder.com/300x600?text=Leaf" alt="Decorative leaf" class="feature-bg left">
+        <div class="feature-content">
+            <h3 class="feature-subtitle">CAPEL COSMETICS</h3>
+            <h2 class="feature-title">TU IDEA, NUESTRA FÓRMULA: CREAMOS BELLEZA A TU MEDIDA.</h2>
+            <a href="#" class="cta-button">Leer más</a>
+        </div>
+        <img src="https://via.placeholder.com/300x600?text=Wheat" alt="Decorative wheat" class="feature-bg right">
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Productos</h3>
+                <ul>
+                    <li><a href="#">Empresa</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Novedades</a></li>
+                </ul>
             </div>
-            <button class="slider-arrow right">❯</button>
-            <div class="slider-nav">
-                <div class="slider-dot active"></div>
-                <div class="slider-dot"></div>
-                <div class="slider-dot"></div>
-                <div class="slider-dot"></div>
+            <div class="footer-column">
+                <h3>Corpore Sano</h3>
+                <ul>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Blog y Consejos</a></li>
+                    <li><a href="#">Sostenibilidad</a></li>
+                    <li><a href="#">Ingredientes</a></li>
+                </ul>
             </div>
-        </section>
-        
-        <!-- Content Navigation -->
-        <nav class="content-nav">
-            <a href="#" class="content-link active" data-content="presentacion">Presentación</a>
-            <a href="#" class="content-link" data-content="mision">Misión/Visión/Valores</a>
-            <a href="#" class="content-link" data-content="ventajas">Ventajas</a>
-            <a href="#" class="content-link" data-content="calidad">Calidad</a>
-            <a href="#" class="content-link" data-content="instalaciones">Instalaciones</a>
-            <a href="#" class="content-link" data-content="experiencia">Experiencia</a>
-        </nav>
-        
-        <!-- Main Content Sections -->
-        <div id="presentacion" class="main-content empresa-content active">
-            <div class="content-left">
-                <img src="https://via.placeholder.com/500x400?text=Presentación" alt="Presentación" style="max-width: 100%;">
+            <div class="footer-column">
+                <h3>Información</h3>
+                <ul>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Área Profesional</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
             </div>
-            <div class="content-right">
-                <h2 class="content-title">Presentación de Capel Cosmetics</h2>
-                <p class="content-text">
-                    Capel Cosmetics es un laboratorio con más de 30 años de experiencia en el sector cosmético. Nos dedicamos a la creación, desarrollo y fabricación de productos cosméticos de alta calidad, respetando siempre los más altos estándares de producción.
-                </p>
-                <p class="content-text">
-                    Nuestra empresa está ubicada en Barcelona, donde contamos con instalaciones de última generación que nos permiten ofrecer un servicio integral, desde la idea inicial hasta el producto final envasado.
-                </p>
-                <p class="content-text">
-                    Nos caracterizamos por nuestra flexibilidad, innovación y compromiso con la calidad. Trabajamos estrechamente con nuestros clientes para entender sus necesidades y convertir sus ideas en productos exitosos.
-                </p>
-                <a href="#" class="cta-button">Contactar ahora</a>
+            <div class="footer-column">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">f</a>
+                    <a href="#" class="social-icon">in</a>
+                    <a href="#" class="social-icon">ig</a>
+                    <a href="#" class="social-icon">yt</a>
+                </div>
+                <p style="margin-top: 20px;">Suscríbete a nuestra newsletter</p>
+                <form style="margin-top: 10px;">
+                    <input type="email" placeholder="Tu email" style="padding: 8px; width: 100%; margin-bottom: 10px;">
+                    <button class="cta-button" style="width: 100%; background-color: var(--accent-orange); color: white; border-color: var(--accent-orange);">Suscribir</button>
+                </form>
             </div>
         </div>
-        
-        <div id="mision" class="main-content empresa-content">
-            <div class="content-left">
-                <img src="https://via.placeholder.com/500x400?text=Misión/Visión/Valores" alt="Misión Visión Valores" style="max-width: 100%;">
-            </div>
-            <div class="content-right">
-                <h2 class="content-title">Misión, Visión y Valores</h2>
-                <h3 style="color: var(--primary-green); margin-bottom: 10px;">Nuestra Misión</h3>
-                <p class="content-text">
-                    Crear productos cosméticos innovadores y sostenibles que mejoren la calidad de vida de las personas, ofreciendo soluciones eficaces y seguras que respeten el medio ambiente.
-                </p>
-                <h3 style="color: var(--primary-green); margin-bottom: 10px;">Nuestra Visión</h3>
-                <p class="content-text">
-                    Ser un referente internacional en la industria cosmética, reconocidos por nuestra capacidad de innovación, calidad y compromiso con la sostenibilidad.
-                    <a href="#" class="nav-link active">Empresa</a>
-                    <div class="dropdown-menu">
-                        <a href="#" class="submenu-item" data-submenu="presentacion">Presentación</a>
-                        <a href="#" class="submenu-item" data-submenu="mision">Misión/Visión/Valores</a>
-                        <a href="#" class="submenu-item" data-submenu="ventajas">Ventajas de trabajar con nosotros</a>
-                        <a href="#" class="submenu-item" data-submenu="calidad">Calidad</a>
-                        <a href="#" class="submenu-item" data-submenu="instalaciones">Instalaciones</a>
-                        <a href="#" class="submenu-item" data-submenu="experiencia">Experiencia/Mercados/Productos</a>
-                    </div>
-                </div>
-                
-                <!-- Servicios Dropdown -->
-                <div class="dropdown-container">
-                    <a href="#" class="nav-link">Servicios</a>
-                    <div class="dropdown-menu">
-                        <a href="#">Formulación</a>
-                        <a href="#">Packaging</a>
-                        <a href="#">Legal/Gestión documental</a>
-                        <a href="#">Elaboración</a>
-                        <a href="#">Envasado</a>
-                        <a href="#">Control</a>
-                    </div>
-                </div>
-                
-                <!-- Productos Dropdown -->
-                <div class="dropdown-container">
-                    <a href="#" class="nav-link">Productos</a>
-                    <div class="dropdown-menu">
-                        <a href="#">Cosméticos</a>
-                        <a href="#">Cosmética Capilar</a>
-                        <a href="#">Productos de perfumería</a>
-                        <a href="#">Productos de higiene corporal</a>
-                    </div>
-                </div>
-                
-                <!-- Novedades Dropdown -->
-                <div class="dropdown-container">
-                    <a href="#" class="nav-link">Novedades</a>
-                    <div class="dropdown-menu">
-                        <a href="#">Notícias</a>
-                        <a href="#">Nuevos Proyectos</a>
-                    </div>
-                </div>
-            </nav>
-            
-            <div class="secondary-nav">
-                <a href="#">Nosotros</a>
-                <a href="#">Consejos</a>
-                <a href="#">Contacta</a>
-                <div class="search-icon">🔍</div>
-            </div>
-            
-            <div class="hamburger">☰</div>
-        </header>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <div class="close-menu">✕</div>
-            <ul>
-                <li class="has-submenu">
-                    <a href="#" class="active">Empresa</a>
-                    <span class="submenu-toggle">+</span>
-                    <ul class="mobile-submenu active">
-                        <li><a href="#" class="mobile-submenu-item active" data-submenu="presentacion">Presentación</a></li>
-                        <li><a href="#" class="mobile-submenu-item" data-submenu="mision">Misión/Visión/Valores</a></li>
-                        <li><a href="#" class="mobile-submenu-item" data-submenu="ventajas">Ventajas de trabajar con nosotros</a></li>
-                        <li><a href="#" class="mobile-submenu-item" data-submenu="calidad">Calidad</a></li>
-                        <li><a href="#" class="mobile-submenu-item" data-submenu="instalaciones">Instalaciones</a></li>
-                        <li><a href="#" class="mobile-submenu-item" data-submenu="experiencia">Experiencia/Mercados/Productos</a></li>
-                    </ul>
-                </li>
-                <li class="has-submenu">
-                    <a href="#">Servicios</a>
-                    <span class="submenu-toggle">+</span>
-                    <ul class="mobile-submenu">
-                        <li><a href="#">Formulación</a></li>
-                        <li><a href="#">Packaging</a></li>
-                        <li><a href="#">Legal/Gestión documental</a></li>
-                        <li><a href="#">Elaboración</a></li>
-                        <li><a href="#">Envasado</a></li>
-                        <li><a href="#">Control</a></li>
-                    </ul>
-                </li>
-                <li class="has-submenu">
-                    <a href="#">Productos</a>
-                    <span class="submenu-toggle">+</span>
-                    <ul class="mobile-submenu">
-                        <li><a href="#">Cosméticos</a></li>
-                        <li><a href="#">Cosmética Capilar</a></li>
-                        <li><a href="#">Productos de perfumería</a></li>
-                        <li><a href="#">Productos de higiene corporal</a></li>
-                    </ul>
-                </li>
-                <li class="has-submenu">
-                    <a href="#">Novedades</a>
-                    <span class="submenu-toggle">+</span>
-                    <ul class="mobile-submenu">
-                        <li><a href="#">Notícias</a></li>
-                        <li><a href="#">Nuevos Proyectos</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Consejos</a></li>
-                <li><a href="#">Contacta</a></li>
-            </ul>
+        <div class="copyright">
+            &copy; 2025 Corpore Sano. Todos los derechos reservados. Política de Privacidad | Términos y Condiciones
         </div>
+    </footer>
+    
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.add('active');
+        });
         
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-overlay"></div>
-            <button class="slider-arrow left">❮</button>
-            <div class="hero-content">
-                <h1>EMPRESA</h1>
-                <p>CONOCE NUESTRA HISTORIA</p>
-            </div>
-            <button class="slider-arrow right">❯</button>
-            <div class="slider-nav">
-                <div class="slider-dot active"></div>
-                <div class="slider-dot"></div>
-                <div class="slider-dot"></div>
-                <div class="slider-dot"></div>
-            </div>
-        </section>
+        document.querySelector('.close-menu').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.remove('active');
+        });
         
-        <!-- Content Navigation -->
-        <nav class="content-nav">
-            <a href="#" class="content-link active" data-content="presentacion">Presentación</a>
-            <a href="#" class="content-link" data-content="mision">Misión/Visión/Valores</a>
-            <a href="#" class="content-link" data-content="ventajas">Ventajas</a>
-            <a href="#" class="content-link" data-content="calidad">Calidad</a>
-            <a href="#" class="content-link" data-content="instalaciones">Instalaciones</a>
-            <a href="#" class="content-link" data-content="experiencia">Experiencia</a>
-        </nav>
+        // Mobile Submenu Toggle
+        const submenuToggles = document.querySelectorAll('.submenu-toggle');
         
-        <!-- Main Content -->
-        <div class="main-content">
-            <div class="content-left">
-                <img src="https://via.placeholder.com/500x400?text=Presentación" alt="Presentación" style="max-width: 100%;">
-            </div>
-            <div class="content-right">
-                <h2 class="content-title">Presentación de Capel Cosmetics</h2>
-                <p class="content-text">
-                    Capel Cosmetics es un laboratorio con más de 30 años de experiencia en el sector cosmético. Nos dedicamos a la creación, desarrollo y fabricación de productos cosméticos de alta calidad, respetando siempre los más altos estándares de producción.
-                </p>
-                <p class="content-text">
-                    Nuestra empresa está ubicada en Barcelona, donde contamos con instalaciones de última generación que nos permiten ofrecer un servicio integral, desde la idea inicial hasta el producto final envasado.
-                </p>
-                <p class="content-text">
-                    Nos caracterizamos por nuestra flexibilidad, innovación y compromiso con la calidad. Trabajamos estrechamente con nuestros clientes para entender sus necesidades y convertir sus ideas en productos exitosos.
-                </p>
-                <a href="#" class="cta-button">Contactar ahora</a>
-            </div>
-        </div>
-        
-        <!-- Footer -->
-        <footer>
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Sobre Nosotros</h3>
-                    <ul>
-                        <li><a href="#">Empresa</a></li>
-                        <li><a href="#">Servicios</a></li>
-                        <li><a href="#">Productos</a></li>
-                        <li><a href="#">Calidad</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contacto</h3>
-                    <ul>
-                        <li><a href="#">info@capelcosmetics.com</a></li>
-                        <li><a href="#">+34 93 123 45 67</a></li>
-                        <li><a href="#">Barcelona, España</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Síguenos</h3>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon">FB</a>
-                        <a href="#" class="social-icon">IG</a>
-                        <a href="#" class="social-icon">LI</a>
-                        <a href="#" class="social-icon">TW</a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2025 Capel Cosmetics. Todos los derechos reservados.
-            </div>
-        </footer>
-        
-        <script>
-            // JavaScript para manejar la navegación del contenido
-            document.addEventListener('DOMContentLoaded', function() {
-                const contentLinks = document.querySelectorAll('.content-link');
-                
-                contentLinks.forEach(link => {
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        
-                        // Eliminar clase activa de todos los links
-                        contentLinks.forEach(el => el.classList.remove('active'));
-                        
-                        // Añadir clase activa al link actual
-                        this.classList.add('active');
-                        
-                        // Aquí se implementaría la lógica para mostrar el contenido correspondiente
-                        // basado en el atributo data-content
-                    });
-                });
-                
-                // Mobile menu toggle
-                const hamburger = document.querySelector('.hamburger');
-                const mobileMenu = document.querySelector('.mobile-menu');
-                const closeMenu = document.querySelector('.close-menu');
-                
-                hamburger.addEventListener('click', function() {
-                    mobileMenu.classList.add('active');
-                });
-                
-                closeMenu.addEventListener('click', function() {
-                    mobileMenu.classList.remove('active');
-                });
-                
-                // Submenu toggles
-                const submenuToggles = document.querySelectorAll('.submenu-toggle');
-                
-                submenuToggles.forEach(toggle => {
-                    toggle.addEventListener('click', function() {
-                        const submenu = this.nextElementSibling;
-                        submenu.classList.toggle('active');
-                        this.textContent = submenu.classList.contains('active') ? '-' : '+';
-                    });
-                });
+        submenuToggles.forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const submenu = this.nextElementSibling;
+                submenu.classList.toggle('active');
+                this.textContent = submenu.classList.contains('active') ? '−' : '+';
             });
-        </script>
-    </body>
-    </html>
+        });
+        
+        // Hero Slider
+        const dots = document.querySelectorAll('.slider-dot');
+        const leftArrow = document.querySelector('.slider-arrow.left');
+        const rightArrow = document.querySelector('.slider-arrow.right');
+        
+        let currentSlide = 3; // Start with the active slide (the 4th dot)
+        
+        function updateSlider() {
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+            
+            // Here you would also update the background image and content
+            // For this example, we'll just simulate the slide change
+            const heroSection = document.querySelector('.hero');
+            heroSection.style.backgroundImage = `url('https://via.placeholder.com/1920x900?text=Slide+${currentSlide + 1}')`;
+        }
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateSlider();
+            });
+        });
+        
+        leftArrow.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + dots.length) % dots.length;
+            updateSlider();
+        });
+        
+        rightArrow.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % dots.length;
+            updateSlider();
+        });
+        
+        // Update immediately to match the current slide
+        updateSlider();
+    </script>
+</body>
+</html>
