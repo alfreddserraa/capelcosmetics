@@ -294,3 +294,147 @@
         padding: 30px 20px;
     }
 }
+/* Estilos mejorados para secciones de servicio */
+.service-section {
+    margin: 80px 0;
+    padding: 40px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.service-detail {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.service-content {
+    flex: 1;
+}
+
+.service-image {
+    flex: 0 0 45%;
+    min-height: 350px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo mejorado para los títulos de servicio */
+.service-title {
+    font-size: 2.2rem;
+    color: var(--primary-green);
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px;
+    font-weight: 700;
+}
+
+.service-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-orange);
+}
+
+/* Estilos para listas de características */
+.service-features {
+    margin: 25px 0;
+    padding-left: 20px;
+}
+
+.service-features li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.service-features li::before {
+    content: '•';
+    color: var(--secondary-green);
+    position: absolute;
+    left: -5px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.service-text {
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+/* Responsive para servicios */
+@media (max-width: 992px) {
+    .service-detail {
+        flex-direction: column;
+    }
+    
+    .service-image {
+        width: 100%;
+        min-height: 300px;
+    }
+}
+/* Clase para títulos principales de sección */
+.primary-service-title {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--primary-green);
+    margin: 60px 0 30px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.primary-service-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: var(--accent-orange);
+}
+/* Estilo para sección activa */
+.section-active {
+    animation: pulse 2s;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(4, 22, 114, 0.1);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(4, 22, 114, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(4, 22, 114, 0);
+    }
+}
+@media (max-width: 768px) {
+    .service-title {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    
+    .service-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .service-content {
+        text-align: center;
+    }
+    
+    .service-features {
+        text-align: left;
+        display: inline-block;
+        margin: 0 auto 20px;
+    }
+}

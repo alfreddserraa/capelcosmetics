@@ -93,3 +93,46 @@ document.addEventListener('DOMContentLoaded', function() {
   // Actualizar slider inmediatamente
   updateSlider();
 });
+// Añadir al script existente
+document.addEventListener('DOMContentLoaded', function() {
+  // Código existente...
+  
+  // Destacar sección activa
+  const highlightActiveSection = () => {
+      const sections = document.querySelectorAll('.service-section');
+      const navLinks = document.querySelectorAll('a[href^="#"]');
+      
+      // Detectar qué sección está en el viewport
+      const scrollPosition = window.scrollY;
+      
+      sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.offsetHeight;
+          const sectionId = section.getAttribute('id');
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+              // Quitar clase activa de todos los enlaces
+              navLinks.forEach(link => {
+                  link.classList.remove('active');
+              });
+              
+              // Añadir clase activa al enlace correspondiente
+              const activeLink = document.querySelector(`a[href="#${sectionId}"]`);
+              if (activeLink) {
+                  activeLink.classList.add('active');
+              }
+              
+              // Destacar visualmente la sección activa
+              section.classList.add('section-active');
+          } else {
+              section.classList.remove('section-active');
+          }
+      });
+  };
+  
+  // Ejecutar al scroll
+  window.addEventListener('scroll', highlightActiveSection);
+  
+  // Ejecutar al cargar la página
+  highlightActiveSection();
+});
