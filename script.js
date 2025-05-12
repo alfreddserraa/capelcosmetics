@@ -345,20 +345,20 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // 3. Manejar envío del formulario
   const contactForm = document.getElementById('contactForm');
-  // Modificamos el manejo del formulario para que funcione con FormSubmit
   if (contactForm) {
-    // Ya no bloqueamos el envío natural del formulario para que FormSubmit funcione
-    // Sin embargo, podríamos añadir validación adicional si lo deseamos
     contactForm.addEventListener('submit', function(e) {
-        // NO usar e.preventDefault() aquí - permite que el formulario se envíe a FormSubmit
-        
-        // Opcional: Cerrar el modal después de un breve retraso
-        // para que el usuario vea que ha hecho clic en enviar
-        setTimeout(function() {
-            closeModal();
-        }, 500);
+      e.preventDefault();
+      alert('Gracias por tu mensaje. Te contactaremos pronto.');
+      closeModal();
     });
   }
+  
+  // 4. Enlaces de contacto en la página - uso de data-attribute para mayor precisión
+  const contactLinks = document.querySelectorAll('a[data-contact="true"], a:contains("Contacta"), a:contains("Contacto")');
+  contactLinks.forEach(link => {
+    link.addEventListener('click', openModal);
+    console.log('Enlace de contacto encontrado y vinculado:', link.textContent);
+  });
   
   // 5. Botones CTA de contacto
   const ctaButtons = document.querySelectorAll('.cta-button');
