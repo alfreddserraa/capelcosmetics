@@ -1,9 +1,8 @@
-</html><!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios - Capel Cosmetics</title>
+    <title>Empresa - Capel Cosmetics</title>
     <style>
         :root {
             --primary-green: #041672;
@@ -184,7 +183,7 @@
         .hero-banner {
             position: relative;
             height: 400px;
-            background-image: url('https://images.unsplash.com/photo-1608248597279-f99d160beba3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-image: url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -348,40 +347,31 @@
             margin-left: 10px;
         }
         
-        /* Service detail section styles */
-        .service-section {
+        /* Our Story Section */
+        .our-story {
             margin-top: 80px;
-            padding-top: 40px;
-            border-top: 1px solid #eee;
-        }
-        
-        .service-detail {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             gap: 50px;
-            margin-bottom: 80px;
         }
         
-        .service-detail:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-        
-        .service-content {
+        .story-content {
             flex: 1;
             min-width: 300px;
         }
         
-        .service-image {
+        .story-image {
             flex: 1;
             min-width: 300px;
             height: 400px;
+            background-image: url('https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             border-radius: 10px;
         }
         
-        .service-title {
+        .story-title {
             font-size: 2rem;
             color: var(--primary-green);
             margin-bottom: 20px;
@@ -389,7 +379,7 @@
             padding-bottom: 15px;
         }
         
-        .service-title::after {
+        .story-title::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -399,21 +389,125 @@
             background-color: var(--accent-orange);
         }
         
-        .service-text {
+        .story-text {
             color: #666;
             line-height: 1.8;
             margin-bottom: 20px;
         }
         
-        .service-features {
-            margin-left: 20px;
+        /* Team Section */
+        .team-section {
+            margin-top: 80px;
+            text-align: center;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .member-img {
+            height: 260px;
+            background-size: cover;
+            background-position: center top;
+        }
+        
+        .member-info {
+            padding: 20px;
+        }
+        
+        .member-name {
+            font-size: 1.2rem;
+            color: var(--primary-green);
+            margin-bottom: 5px;
+        }
+        
+        .member-role {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .social-link {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--light-grey);
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary-green);
+            color: white;
+        }
+        
+        /* Values Section */
+        .values-section {
+            margin-top: 80px;
+            background-color: var(--light-grey);
+            padding: 60px 5%;
+            text-align: center;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .value-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .value-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            color: var(--secondary-green);
             margin-bottom: 20px;
         }
         
-        .service-features li {
+        .value-title {
+            font-size: 1.3rem;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+        
+        .value-text {
             color: #666;
-            line-height: 1.8;
-            margin-bottom: 8px;
+            line-height: 1.6;
         }
         
         /* Call to Action */
@@ -434,8 +528,6 @@
             margin-top: 30px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border: none;
-            cursor: pointer;
         }
         
         .cta-button:hover {
@@ -546,6 +638,14 @@
             .cards-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         @media (max-width: 768px) {
@@ -557,12 +657,22 @@
                 grid-template-columns: 1fr;
             }
             
-            .service-detail {
-                flex-direction: column-reverse !important;
+            .values-grid {
+                grid-template-columns: 1fr;
             }
             
-            .service-image {
+            .our-story {
+                flex-direction: column-reverse;
+            }
+            
+            .story-image {
                 width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .team-grid {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -843,30 +953,30 @@
         <nav class="primary-nav">
             <!-- Empresa Dropdown -->
             <div class="dropdown-container">
-                <a href="empresa.html" class="nav-link">Empresa</a>
+                <a href="empresa.html" class="nav-link active">Empresa</a>
                 <div class="dropdown-menu">
-                    <a href="empresa.html#nuestra-historia">Presentación</a>
-                    <a href="empresa.html#valores">Misión/Visión/Valores</a>
-                    <a href="empresa.html#ventajas">Ventajas de trabajar con nosotros</a>
-                    <a href="empresa.html#calidad">Calidad</a>
-                    <a href="empresa.html#instalaciones">Instalaciones</a>
-                    <a href="empresa.html#experiencia">Experiencia/Mercados/Productos</a>
+                    <a href="#nuestra-historia">Presentación</a>
+                    <a href="#valores">Misión/Visión/Valores</a>
+                    <a href="#ventajas">Ventajas de trabajar con nosotros</a>
+                    <a href="#calidad">Calidad</a>
+                    <a href="#instalaciones">Instalaciones</a>
+                    <a href="#experiencia">Experiencia/Mercados/Productos</a>
                 </div>
             </div>
             
             <!-- Servicios Dropdown -->
             <div class="dropdown-container">
-                <a href="servicios.html" class="nav-link active">Servicios</a>
+                <a href="#" class="nav-link">Servicios</a>
                 <div class="dropdown-menu">
-                    <a href="#formulacion">Formulación</a>
-                    <a href="#packaging">Packaging</a>
-                    <a href="#legal">Legal/Gestión documental</a>
-                    <a href="#elaboracion">Elaboración</a>
-                    <a href="#envasado">Envasado</a>
-                    <a href="#control">Control</a>
+                    <a href="#">Formulación</a>
+                    <a href="#">Packaging</a>
+                    <a href="#">Legal/Gestión documental</a>
+                    <a href="#">Elaboración</a>
+                    <a href="#">Envasado</a>
+                    <a href="#">Control</a>
                 </div>
             </div>
-            
+
             <!-- Productos Dropdown -->
             <div class="dropdown-container">
                 <a href="#" class="nav-link">Productos</a>
@@ -887,7 +997,7 @@
                 </div>
             </div>
         </nav>
-        
+
         <div class="secondary-nav">
             <a href="#">Nosotros</a>
             <a href="#">Consejos</a>
@@ -897,6 +1007,279 @@
         
         <div class="hamburger">☰</div>
     </header>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="close-menu">✕</div>
+        <ul>
+            <li class="has-submenu">
+                <a href="#">Productos</a>
+                <span class="submenu-toggle">+</span>
+                <ul class="mobile-submenu">
+                    <li><a href="#">Cosméticos</a></li>
+                    <li><a href="#">Cosmética Capilar</a></li>
+                    <li><a href="#">Productos de perfumería</a></li>
+                    <li><a href="#">Productos de higiene corporal</a></li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="#">Novedades</a>
+                <span class="submenu-toggle">+</span>
+                <ul class="mobile-submenu">
+                    <li><a href="#">Notícias</a></li>
+                    <li><a href="#">Nuevos Proyectos</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Consejos</a></li>
+            <li><a href="#" data-contact="true">Contacta</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>NUESTROS SERVICIOS</h1>
+            <p>Soluciones personalizadas para cada fase del desarrollo de productos cosméticos, desde la concepción hasta la entrega final.</p>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">Inicio</a> <span>></span> <a href="servicios.html">Servicios</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Section Title -->
+        <div class="section-title">
+            <h2>Servicios Integrales</h2>
+            <p>En Capel Cosmetics ofrecemos un servicio completo para el desarrollo y fabricación de productos cosméticos, adaptándonos a las necesidades específicas de cada cliente. Nuestra experiencia de más de 45 años nos permite ofrecer soluciones personalizadas y de alta calidad en todas las fases del proceso.</p>
+        </div>
+        
+        <!-- Cards Grid -->
+        <div class="cards-grid">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Formulación</h3>
+                    <p class="card-text">Desarrollo de fórmulas a medida según las especificaciones del cliente, con ingredientes innovadores y eficaces que cumplen con las regulaciones vigentes.</p>
+                    <a href="#formulacion" class="card-link">Conocer más</a>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1556227834-09f1de7a7d14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Packaging</h3>
+                    <p class="card-text">Asesoramiento en la selección de envases y diseño de packaging atractivo y funcional que refuerce la identidad de la marca y el producto.</p>
+                    <a href="#packaging" class="card-link">Conocer más</a>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Elaboración</h3>
+                    <p class="card-text">Fabricación de productos con la más alta calidad, utilizando equipos y tecnología de vanguardia, siguiendo estrictos protocolos de fabricación.</p>
+                    <a href="#elaboracion" class="card-link">Conocer más</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Service Sections -->
+        <div class="service-section" id="formulacion">
+            <div class="service-detail">
+                <div class="service-content">
+                    <h2 class="service-title">Formulación</h2>
+                    <p class="service-text">Nuestro equipo de I+D, compuesto por químicos y farmacéuticos con amplia experiencia en el sector, trabaja en estrecha colaboración con cada cliente para desarrollar fórmulas personalizadas que cumplan con sus objetivos y requisitos específicos.</p>
+                    <p class="service-text">Investigamos continuamente nuevos ingredientes y tecnologías para ofrecer productos innovadores que destaquen en el mercado y aporten verdadero valor al consumidor final.</p>
+                    <ul class="service-features">
+                        <li>Desarrollo de fórmulas exclusivas</li>
+                        <li>Formulación de productos naturales y ecológicos</li>
+                        <li>Reformulación y mejora de productos existentes</li>
+                        <li>Tests de estabilidad y compatibilidad</li>
+                        <li>Adaptación a diferentes mercados internacionales</li>
+                    </ul>
+                    <p class="service-text">Cada formulación se somete a rigurosos tests para garantizar su estabilidad, seguridad y eficacia antes de pasar a la fase de producción.</p>
+                </div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80');"></div>
+            </div>
+        </div>
+        
+        <div class="service-section" id="packaging">
+            <div class="service-detail">
+                <div class="service-content">
+                    <h2 class="service-title">Packaging</h2>
+                    <p class="service-text">El packaging es uno de los elementos más importantes para el éxito de un producto cosmético. En Capel Cosmetics ofrecemos asesoramiento integral en la selección de envases y el diseño de packaging, buscando el equilibrio perfecto entre estética, funcionalidad y sostenibilidad.</p>
+                    <p class="service-text">Colaboramos con proveedores de envases nacionales e internacionales, lo que nos permite ofrecer una amplia gama de opciones adaptadas a cada tipo de producto y segmento de mercado.</p>
+                    <ul class="service-features">
+                        <li>Selección de envases según tipo de producto</li>
+                        <li>Propuestas de diseño alineadas con la imagen de marca</li>
+                        <li>Alternativas sostenibles y eco-friendly</li>
+                        <li>Pruebas de compatibilidad envase-producto</li>
+                        <li>Diseño de etiquetas y elementos gráficos</li>
+                    </ul>
+                    <p class="service-text">Nuestro objetivo es crear un packaging que no solo contenga el producto de forma segura, sino que también refuerce su posicionamiento y atraiga al consumidor en el punto de venta.</p>
+                </div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1556227834-09f1de7a7d14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80');"></div>
+            </div>
+        </div>
+        
+        <div class="service-section" id="legal">
+            <div class="service-detail">
+                <div class="service-content">
+                    <h2 class="service-title">Legal / Gestión documental</h2>
+                    <p class="service-text">La comercialización de productos cosméticos está sujeta a una estricta normativa que varía según el mercado. Nuestro departamento legal y regulatorio se encarga de gestionar toda la documentación necesaria para cumplir con los requisitos legales en cada país de destino.</p>
+                    <p class="service-text">Facilitamos a nuestros clientes todos los trámites administrativos, permitiéndoles centrarse en la comercialización de sus productos con total tranquilidad.</p>
+                    <ul class="service-features">
+                        <li>Registro de productos cosméticos (CPNP en Europa)</li>
+                        <li>Elaboración de dossier del producto</li>
+                        <li>Evaluación de seguridad</li>
+                        <li>Elaboración de fichas técnicas y de seguridad</li>
+                        <li>Adaptación a normativas internacionales</li>
+                        <li>Gestión de certificaciones (BIO, ECO, Cruelty-free, etc.)</li>
+                    </ul>
+                    <p class="service-text">Nuestro equipo se mantiene constantemente actualizado sobre los cambios normativos para garantizar que todos los productos cumplan con la legislación vigente en cada momento.</p>
+                </div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80');"></div>
+            </div>
+        </div>
+        
+        <div class="service-section" id="elaboracion">
+            <div class="service-detail">
+                <div class="service-content">
+                    <h2 class="service-title">Elaboración</h2>
+                    <p class="service-text">La fabricación de los productos se realiza en nuestras instalaciones equipadas con la tecnología más avanzada, siguiendo estrictos protocolos y bajo la supervisión de nuestro equipo técnico especializado.</p>
+                    <p class="service-text">Nuestra planta de producción cuenta con diferentes líneas adaptadas a distintos tipos de productos, lo que nos permite ofrecer soluciones a medida tanto para pequeñas como para grandes producciones.</p>
+                    <ul class="service-features">
+                        <li>Fabricación de todo tipo de formas cosméticas</li>
+                        <li>Procesos controlados según estándares GMP</li>
+                        <li>Control de calidad durante todo el proceso</li>
+                        <li>Flexibilidad en los lotes de producción</li>
+                        <li>Optimización de procesos productivos</li>
+                    </ul>
+                    <p class="service-text">Cada lote de producción se somete a controles de calidad específicos para garantizar el cumplimiento de todas las especificaciones técnicas antes de pasar a la fase de envasado.</p>
+                </div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80');"></div>
+            </div>
+        </div>
+        
+        <div class="service-section" id="envasado">
+            <div class="service-detail">
+                <div class="service-content">
+                    <h2 class="service-title">Envasado</h2>
+                    <p class="service-text">Contamos con líneas de envasado automatizadas para diferentes tipos de productos y formatos, garantizando un proceso eficiente y de alta calidad que preserva todas las propiedades del producto.</p>
+                    <p class="service-text">Nuestros equipos permiten envasar desde pequeñas series exclusivas hasta grandes producciones, adaptándonos a las necesidades de cada cliente.</p>
+                    <ul class="service-features">
+                        <li>Envasado de frascos, tubos, tarros, ampollas, etc.</li>
+                        <li>Etiquetado personalizado</li>
+                        <li>Codificación y marcaje de lotes</li>
+                        <li>Estuchado y embalaje final</li>
+                        <li>Control visual y automatizado</li>
+                    </ul>
+                    <p class="service-text">Durante todo el proceso de envasado realizamos controles de calidad para asegurar que el producto final cumpla con todos los estándares establecidos.</p>
+                </div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1565008447742-97f6f38c985c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80');"></div>
+            </div>
+        </div>
+        
+        <div class="service-section" id="control">
+            <div class="service-detail">
+                <div class="service-content">
+                    <h2 class="service-title">Control</h2>
+                    <p class="service-text">Nuestro laboratorio de control de calidad analiza y verifica todos los productos en sus diferentes fases, desde las materias primas hasta el producto final, garantizando su seguridad, estabilidad y cumplimiento con las especificaciones establecidas.</p>
+                    <p class="service-text">Realizamos análisis físico-químicos, microbiológicos y organolépticos para asegurar que el producto mantiene sus propiedades durante toda su vida útil.</p>
+                    <ul class="service-features">
+                        <li>Control de calidad de materias primas</li>
+                        <li>Análisis de producto semielaborado</li>
+                        <li>Control de producto terminado</li>
+                        <li>Estudios de estabilidad a largo plazo</li>
+                        <li>Evaluación sensorial</li>
+                        <li>Tests de eficacia (cuando sea aplicable)</li>
+                    </ul>
+                    <p class="service-text">Solo los productos que superan todos los controles de calidad son liberados para su comercialización, garantizando así la máxima satisfacción del consumidor final.</p>
+                </div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1581093588401-fbb62a02f120?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80');"></div>
+            </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <div class="section-title">
+                <h2>¿Necesitas más información?</h2>
+                <p>Si estás interesado en nuestros servicios o tienes alguna consulta específica, no dudes en ponerte en contacto con nuestro equipo. Estaremos encantados de asesorarte y ofrecerte la solución que mejor se adapte a tus necesidades.</p>
+            </div>
+            <a href="#" class="cta-button" data-contact="true">Contactar</a>
+        </div>
+    </div>
+                <a href="empresa.html">Empresa</a>
+                <span class="submenu-toggle">+</span>
+                <ul class="mobile-submenu">
+                    <li><a href="empresa.html#nuestra-historia">Presentación</a></li>
+                    <li><a href="empresa.html#valores">Misión/Visión/Valores</a></li>
+                    <li><a href="empresa.html#ventajas">Ventajas de trabajar con nosotros</a></li>
+                    <li><a href="empresa.html#calidad">Calidad</a></li>
+                    <li><a href="empresa.html#instalaciones">Instalaciones</a></li>
+                    <li><a href="empresa.html#experiencia">Experiencia/Mercados/Productos</a></li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="servicios.html">Servicios</a>
+                <span class="submenu-toggle">+</span>
+                <ul class="mobile-submenu">
+                    <li><a href="#formulacion">Formulación</a></li>
+                    <li><a href="#packaging">Packaging</a></li>
+                    <li><a href="#legal">Legal/Gestión documental</a></li>
+                    <li><a href="#elaboracion">Elaboración</a></li>
+                    <li><a href="#envasado">Envasado</a></li>
+                    <li><a href="#control">Control</a></li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Capel Cosmetics</h3>
+                <ul>
+                    <li><a href="empresa.html">Empresa</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Novedades</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Información</h3>
+                <ul>
+                    <li><a href="#" data-contact="true">Contacto</a></li>
+                    <li><a href="#">Área Profesional</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">f</a>
+                    <a href="#" class="social-icon">in</a>
+                    <a href="#" class="social-icon">ig</a>
+                    <a href="#" class="social-icon">yt</a>
+                </div>
+                <p style="margin-top: 20px;">Suscríbete a nuestra newsletter</p>
+                <form style="margin-top: 10px;">
+                    <input type="email" placeholder="Tu email" style="padding: 8px; width: 100%; margin-bottom: 10px;">
+                    <button class="cta-button" style="width: 100%; background-color: var(--accent-orange); color: white; border-color: var(--accent-orange);">Suscribir</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Capel Cosmetics. Todos los derechos reservados. Política de Privacidad | Términos y Condiciones
+        </div>
+    </footer>
+
     <!-- Modal de Contacto (integrado directamente en el HTML) -->
     <div class="modal-overlay" id="contactModal">
         <div class="modal-container">
@@ -960,7 +1343,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Script integrado -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
