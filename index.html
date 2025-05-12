@@ -657,53 +657,47 @@
             <div class="modal-content">
                 <button class="modal-close" id="closeModal">✕</button>
                 <h2 class="modal-title">Escríbenos si tienes cualquier duda o necesitas información</h2>
-                <p class="modal-subtitle">Acerca de nuestros productos o servicios a rserra@capelcosmetics.com</p>
+                <p class="modal-subtitle">Acerca de nuestros productos o servicios a info@capelcosmetics.com</p>
                 
-                <form id="contactForm" action="https://formsubmit.co/rserra@capelcosmetics.com" method="POST">
-                  <div class="form-group">
-                      <input type="text" name="nombre" class="form-control" placeholder="Nombre completo*" required>
-                  </div>
-                  
-                  <div class="form-group">
-                      <input type="email" name="email" class="form-control" placeholder="Correo electrónico*" required>
-                  </div>
-                  
-                  <div class="form-group">
-                      <div class="form-select">
-                          <select name="consulta" class="form-control">
-                              <option value="" disabled selected>Consulta sobre un producto</option>
-                              <option value="cosmeticos">Cosméticos</option>
-                              <option value="capilar">Cosmética Capilar</option>
-                              <option value="perfumeria">Productos de perfumería</option>
-                              <option value="higiene">Productos de higiene corporal</option>
-                          </select>
-                      </div>
-                  </div>
-                  
-                  <div class="form-group">
-                      <input type="text" name="empresa" class="form-control" placeholder="Empresa">
-                  </div>
-                  
-                  <div class="form-group">
-                      <input type="text" name="pais" class="form-control" placeholder="País / Estado">
-                  </div>
-                  
-                  <div class="form-group">
-                      <textarea name="mensaje" class="form-control form-textarea" placeholder="Escribe tu mensaje"></textarea>
-                  </div>
-                  
-                  <div class="form-checkbox">
-                      <input type="checkbox" id="privacyPolicy" name="acepto_politica" required>
-                      <label for="privacyPolicy">He leído la política de cookies y acepto la <a href="#" class="privacy-link">Política de privacidad</a></label>
-                  </div>
-              
-                  <!-- Campos ocultos para configuración de FormSubmit -->
-                  <input type="hidden" name="_subject" value="Nuevo mensaje de contacto - Capel Cosmetics">
-                  <input type="hidden" name="_template" value="table">
-                  <input type="hidden" name="_captcha" value="true">
-                  <input type="hidden" name="_next" value="https://tudominio.com/gracias.html">
-                  
-                  <button type="submit" class="form-submit">Enviar</button>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Nombre completo*" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Correo electrónico*" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-select">
+                            <select class="form-control">
+                                <option value="" disabled selected>Consulta sobre un producto</option>
+                                <option value="cosmeticos">Cosméticos</option>
+                                <option value="capilar">Cosmética Capilar</option>
+                                <option value="perfumeria">Productos de perfumería</option>
+                                <option value="higiene">Productos de higiene corporal</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Empresa">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="País / Estado">
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea class="form-control form-textarea" placeholder="Escribe tu mensaje"></textarea>
+                    </div>
+                    
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="privacyPolicy" required>
+                        <label for="privacyPolicy">He leído la política de cookies y acepto la <a href="#" class="privacy-link">Política de privacidad</a></label>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">Enviar</button>
                 </form>
             </div>
         </div>

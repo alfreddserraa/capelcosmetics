@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capel Cosmetics - Contacto</title>
+    <style>
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+        }
+
+        .modal-container {
+            position: relative;
+            display: flex;
+            width: 100%;
+            max-width: 1000px;
+            height: 90vh;
+            max-height: 700px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-image {
+            flex: 0 0 40%;
+            background-color: #f5f5f5;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .modal-image img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .modal-content {
+            flex: 0 0 60%;
+            padding: 40px;
+            background-color: #041672;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .modal-subtitle {
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            background-color: transparent;
+            color: white;
+            font-size: 16px;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-bottom: 1px solid white;
+        }
+
+        .form-select {
+            position: relative;
+        }
+
+        .form-select select {
+            appearance: none;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            background-color: transparent;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form-select:after {
+            content: '▼';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            pointer-events: none;
+        }
+
+        .form-textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .form-checkbox input {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+
+        .form-checkbox label {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .form-submit {
+            margin-top: 20px;
+            padding: 12px 0;
+            width: 100%;
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .form-submit:hover {
+            background-color: white;
+            color: #041672;
+        }
+
+        .privacy-link {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .modal-container {
+                flex-direction: column;
+                height: auto;
+                max-height: 90vh;
+            }
+
+            .modal-image {
+                height: 200px;
+                flex: none;
+            }
+
+            .modal-content {
+                flex: none;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal Structure -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-container">
+            <div class="modal-image">
+                <img src="/api/placeholder/400/320" alt="Capel Cosmetics">
+            </div>
+            <div class="modal-content">
+                <button class="modal-close" id="closeModal">✕</button>
+                <h2 class="modal-title">Escríbenos si tienes cualquier duda o necesitas información</h2>
+                <p class="modal-subtitle">Acerca de nuestros productos o servicios a info@capelcosmetics.com</p>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Nombre completo*" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Correo electrónico*" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-select">
+                            <select class="form-control">
+                                <option value="" disabled selected>Consulta sobre un producto</option>
+                                <option value="cosmeticos">Cosméticos</option>
+                                <option value="capilar">Cosmética Capilar</option>
+                                <option value="perfumeria">Productos de perfumería</option>
+                                <option value="higiene">Productos de higiene corporal</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Empresa">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="País / Estado">
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea class="form-control form-textarea" placeholder="Escribe tu mensaje"></textarea>
+                    </div>
+                    
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="privacyPolicy" required>
+                        <label for="privacyPolicy">He leído la política de cookies y acepto la <a href="#" class="privacy-link">Política de privacidad</a></label>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // This script will be added to the main script.js file separately
+    </script>
+</body>
+</html>
